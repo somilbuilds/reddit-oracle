@@ -152,6 +152,10 @@ menu.post('/summon-oracle', async (c) => {
         `oracle:post:${targetId}:postTitle`,
         targetTitle
       ),
+      redis.set(
+        `oracle:dashboard:${submitted.id}`,
+        targetId
+      ),
     ]);
 
     const oraclePostUrl = `https://www.reddit.com${submitted.permalink}`;

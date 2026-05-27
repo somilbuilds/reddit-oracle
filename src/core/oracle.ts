@@ -739,6 +739,87 @@ async function callOracleProxy(
   return parsed;
 }
 
+async function callGemini(
+  payload: {
+    postTitle: string;
+    comments: string[];
+    chaosScore: number;
+    riskLevel: RiskLevel;
+  },
+  geminiApiKey: string,
+  fallbackTemperature: number
+): Promise<OracleProxyAnalysis | undefined> {
+  const prompt = `You are a Reddit moderation assistant. Return ONLY a JSON object, no markdown, no extra text.
+
+Thread: ${payload.postTitle}
+Chaos: ${payload.chaosScore}/100  Risk: ${payload.riskLevel}
+Comments: ${payload.comments.map((c, i) => `${i + 1}. ${c}`).join(' | ')}
+
+JSON: {"publicProphecy":"<2 funny sentences about what Reddit archetype is arriving>","modWarning":"<2 sentences on conflict forming and what mod should do>","verdict":"<calm or warming or heated or explosive>","aggression":<0-10>,"sarcasm":<0-10>}`;
+
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 500,
+          responseMimeType: 'application/json',
+        },
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Gemini error ${response.status}: ${body.slice(0, 300)}`);
+  }
+
+  const data = await response.json();
+  const parts = data?.candidates?.[0]?.content?.parts ?? [];
+  const text = parts.map((p: { text?: string }) => p.text ?? '').join('');
+  console.log('[Oracle][Gemini RAW]', text);
+
+  const cleaned = text.replace(/```json/g, '').replace(/```/g, '').trim();
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(cleaned);
+  } catch {
+    const match = cleaned.match(/\{[\s\S]*?\}/);
+    if (!match) {
+      throw new Error(`Gemini returned non-JSON: ${cleaned.slice(0, 200)}`);
+    }
+    try {
+      parsed = JSON.parse(match[0]);
+    } catch {
+      const prophecyMatch = cleaned.match(/"publicProphecy"\s*:\s*"([^"]+)"/);
+      const warningMatch = cleaned.match(/"modWarning"\s*:\s*"([^"]+)"/);
+      if (prophecyMatch || warningMatch) {
+        parsed = {
+          publicProphecy: prophecyMatch?.[1] ?? '',
+          modWarning: warningMatch?.[1] ?? '',
+          verdict: 'warming',
+          aggression: 5,
+          sarcasm: 3,
+        };
+      } else {
+        throw new Error(`Gemini JSON parse failed: ${cleaned.slice(0, 200)}`);
+      }
+    }
+  }
+
+  const result = parseOracleProxyJson(parsed, fallbackTemperature);
+  if (!result) {
+    throw new Error('Gemini response failed schema validation');
+  }
+
+  return result;
+}
+
 async function getOracleProxyUrl(
   settings: OracleSettings
 ): Promise<string> {
@@ -985,9 +1066,45 @@ async function generatePredictions(
       message
     );
 
-    return {
-      modWarning: `Oracle could not reach Groq proxy: ${message}`,
+    // Gemini fallback — only runs when Groq proxy is unreachable
+    try {
+      const geminiKey = await deps.settings.get<string>('gemini_api_key');
 
+      if (geminiKey) {
+        console.log('[Oracle][Gemini] attempting fallback...', postId);
+
+        const geminiAnalysis = await callGemini(
+          {
+            postTitle: state.postTitle ?? 'unknown',
+            comments: state.recentCommentSnippets?.slice(-5) ?? [],
+            chaosScore,
+            riskLevel: state.riskLevel,
+          },
+          geminiKey,
+          existingState.aiTemperature ?? 0
+        );
+
+        if (geminiAnalysis) {
+          console.log('[Oracle][Gemini] fallback success', postId);
+
+          await Promise.all([
+            deps.redis.set(postKey(postId, 'lastAiRunAt'), String(now)),
+            deps.redis.set(postKey(postId, 'lastAiChaosScore'), String(chaosScore)),
+            deps.redis.set(postKey(postId, 'lastAiRiskLevel'), state.riskLevel),
+            deps.redis.set(postKey(postId, 'pendingAnalysisAt'), ''),
+          ]);
+
+          return { ...geminiAnalysis, generated: true };
+        }
+      }
+    } catch (geminiErr) {
+      const geminiMessage =
+        geminiErr instanceof Error ? geminiErr.message : String(geminiErr);
+      console.error('[Oracle][Gemini] fallback failed', postId, geminiMessage);
+    }
+
+    return {
+      modWarning: `Oracle could not reach any AI provider. Groq: ${message}`,
       prophecy: proxyFallbackPredictions().prophecy,
       temperature: existingState.aiTemperature ?? 0,
       aggression: existingState.aiAggression ?? 0,
@@ -1042,10 +1159,10 @@ export async function recordComment(
   );
 
   const conflictScore =
-    existing.conflictScore + conflictDelta;
+  existing.conflictScore * 0.85 + conflictDelta;
 
   let sarcasmScore =
-    existing.sarcasmScore + sarcasmDelta;
+  existing.sarcasmScore * 0.85 + sarcasmDelta;
 
   const commentCount =
     existing.commentCount + 1;

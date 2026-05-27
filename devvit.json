@@ -54,9 +54,10 @@
     "http": {
       "enable": true,
       "domains": [
-      "https://groq-api-proxy-server-36dd.onrender.com"
-  ]
-}
+        "https://groq-api-proxy-server-36dd.onrender.com",
+        "https://generativelanguage.googleapis.com"
+      ]
+    }
   },
 
   "settings": {
@@ -67,6 +68,13 @@
         "helpText": "URL for the separate Groq proxy service. Use http://localhost:3000/oracle for local development and your Render /oracle URL in production.",
         "placeholder": "http://localhost:3000/oracle",
         "isSecret": false
+      },
+      "gemini_api_key": {
+        "type": "string",
+        "label": "Gemini API Key (fallback)",
+        "helpText": "Google Gemini API key. Used as fallback when the Groq proxy is unreachable.",
+        "placeholder": "AIza...",
+        "isSecret": true
       }
     }
   },
