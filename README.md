@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Thread Oracle
 
 Thread Oracle is a Reddit Devvit moderation tool that watches active threads for signs of chaos. It tracks comment velocity, tone signals, user history, and recent comment snippets, then calls a separate Groq proxy service to generate the public prophecy and private moderation warning.
@@ -134,3 +135,7 @@ Deploy:
 ```bash
 npm run deploy
 ```
+=======
+# reddit-oracle
+An AI-powered Reddit moderation companion that predicts thread escalation before chaos erupts - helping moderators stay proactive while keeping Reddit culture fun, weird, and alive.
+>>>>>>> c94f8f118770d3dd779a7190c8cc49632816de63
