@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "prophecy-oracle",
+
+  "blocks": {
+    "entry": "src/blocks/main.tsx"
+  },
+
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "entry": "splash.html"
+      }
+    }
+  },
+
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+
+  "menu": {
+    "items": [
+      {
+        "label": "Summon Thread Oracle",
+        "description": "Create an Oracle dashboard post that watches this thread for chaos.",
+        "location": ["post"],
+        "forUserType": "user",
+        "endpoint": "/internal/menu/summon-oracle",
+        "postFilter": "none"
+      },
+
+      {
+        "label": "Consult the Oracle",
+        "description": "Get guidance on using the Oracle dashboard for this thread.",
+        "location": ["post"],
+        "forUserType": "user",
+        "endpoint": "/internal/menu/consult-oracle",
+        "postFilter": "none"
+      }
+    ]
+  },
+
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install",
+    "onCommentCreate": "/internal/triggers/on-comment-create"
+  },
+
+  "permissions": {
+    "reddit": true,
+    "redis": true,
+
+    "http": {
+      "enable": true,
+      "domains": [
+      "https://groq-api-proxy-server-36dd.onrender.com"
+  ]
+}
+  },
+
+  "settings": {
+    "global": {
+      "oracle_proxy_url": {
+        "type": "string",
+        "label": "Oracle Proxy URL",
+        "helpText": "URL for the separate Groq proxy service. Use http://localhost:3000/oracle for local development and your Render /oracle URL in production.",
+        "placeholder": "http://localhost:3000/oracle",
+        "isSecret": false
+      }
+    }
+  },
+
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  }
+}
