@@ -1,55 +1,39 @@
-```
-████████╗██╗  ██╗██████╗ ███████╗ █████╗ ██████╗      
-╚══██╔══╝██║  ██║██╔══██╗██╔════╝██╔══██╗██╔══██╗     
-   ██║   ███████║██████╔╝█████╗  ███████║██║  ██║     
-   ██║   ██╔══██║██╔══██╗██╔══╝  ██╔══██║██║  ██║     
-   ██║   ██║  ██║██║  ██║███████╗██║  ██║██████╔╝     
-   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝      
-                                                        
- ██████╗ ██████╗  █████╗  ██████╗██╗     ███████╗     
-██╔═══██╗██╔══██╗██╔══██╗██╔════╝██║     ██╔════╝     
-██║   ██║██████╔╝███████║██║     ██║     █████╗       
-██║   ██║██╔══██╗██╔══██║██║     ██║     ██╔══╝       
-╚██████╔╝██║  ██║██║  ██║╚██████╗███████╗███████╗     
- ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝     
-```
+      ████████╗██╗  ██╗██████╗ ███████╗ █████╗ ██████╗      
+      ╚══██╔══╝██║  ██║██╔══██╗██╔════╝██╔══██╗██╔══██╗     
+         ██║   ███████║██████╔╝█████╗  ███████║██║  ██║     
+         ██║   ██╔══██║██╔══██╗██╔══╝  ██╔══██║██║  ██║     
+         ██║   ██║  ██║██║  ██║███████╗██║  ██║██████╔╝     
+         ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝      
 
-<h3 align="center"><i>Predicting Reddit chaos before moderators feel the heat.</i></h3>
+       ██████╗ ██████╗  █████╗  ██████╗██╗     ███████╗     
+      ██╔═══██╗██╔══██╗██╔══██╗██╔════╝██║     ██╔════╝     
+      ██║   ██║██████╔╝███████║██║     ██║     █████╗       
+      ██║   ██║██╔══██╗██╔══██║██║     ██║     ██╔══╝       
+      ╚██████╔╝██║  ██║██║  ██║╚██████╗███████╗███████╗     
+       ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝     
+
+> Predicting Reddit chaos before moderators feel the heat.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Devvit-Reddit%20Native-FF4500?style=for-the-badge&logo=reddit&logoColor=white" />
-  <img src="https://img.shields.io/badge/Groq-LPU%20Inference-F55036?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Render-Proxy%20Backend-46E3B7?style=for-the-badge&logo=render" />
-  <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Redis-Stateful-DC382D?style=for-the-badge&logo=redis&logoColor=white" />
-  <img src="https://img.shields.io/badge/Hackathon-Reddit%20Mod%20Tools-00C853?style=for-the-badge" />
-</p>
-
-<p align="center">
-  <a href="https://developers.reddit.com/apps/prophecy-oracle">📦 App Listing</a> •
-  <a href="https://reddit.com/r/prophecy_oracle_dev">🧪 Demo Subreddit</a> •
-  <a href="https://github.com/somilbuilds/groq-api-proxy-server">🔗 Proxy Repo</a>
+  <img src="https://img.shields.io/badge/Devvit-Reddit%20Native-FF4500?style=for-the-badge&logo=reddit">
+  <img src="https://img.shields.io/badge/AI-Groq%20%2B%20Gemini-blueviolet?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Redis-Live%20State-red?style=for-the-badge&logo=redis">
+  <img src="https://img.shields.io/badge/Status-Hackathon%20Build-success?style=for-the-badge">
 </p>
 
 ---
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║   🔮 THREAD ORACLE • REDDIT MODERATION AUGURY ENGINE 🔮    ║
-║                                                              ║
-║      "The thread grows restless... essay guy approaches."   ║
-╚══════════════════════════════════════════════════════════════╝
-```
+# 🔮 Thread Oracle
+
+Thread Oracle is a Reddit-native moderation intelligence engine built with Devvit.
+
+Instead of reacting *after* a thread collapses into chaos, the Oracle continuously watches conversation patterns and predicts escalation before moderators are forced to intervene.
+
+It behaves less like a dashboard — and more like a weather station for online conflict.
 
 ---
 
-## 🌩️ What Is Thread Oracle?
-
-Thread Oracle is a **Reddit-native moderation intelligence system** built with Devvit.
-
-Instead of reacting after a thread has already collapsed into chaos, the Oracle continuously observes discussion patterns and **predicts escalation before moderators are forced to intervene.**
-
-It behaves less like a dashboard — and more like a **weather station for online conflict.**
+# 🌩️ What The Oracle Watches
 
 The system monitors:
 
@@ -61,36 +45,48 @@ The system monitors:
 - engagement bursts
 - repeat high-friction users
 - escalation momentum
+- punctuation rage
+- dogpile formation
 
-These signals are transformed into **🔥 Chaos Scores**, **🚨 Risk Levels**, **👁️ Moderator warnings**, and **🔮 AI-generated prophecies.**
+These signals become:
 
----
-
-## 🧠 The Core Idea
-
-```
-Most moderation tools answer:   "What happened?"
-Thread Oracle answers:          "What is about to happen?"
-```
+- 🔥 Chaos Scores
+- 🚨 Risk Levels
+- 👁️ Moderator Warnings
+- 🔮 AI-generated Prophecies
 
 ---
 
-## ⚡ Features
+# 🧠 The Core Idea
 
-### 🌡️ Chaos Detection Engine
+Most moderation tools answer:
+
+> “What happened?”
+
+Thread Oracle answers:
+
+> “What is about to happen?”
+
+---
+
+# ⚡ Features
+
+## 🌡️ Chaos Detection Engine
 
 | Signal | Purpose |
 |---|---|
 | Comment Velocity | Detects sudden engagement spikes |
 | Conflict Keywords | Detects argumentative escalation |
 | Sarcasm Density | Detects baiting and mockery |
-| Activity Bursts | Finds momentum acceleration |
+| Activity Bursts | Detects momentum acceleration |
 | Dogpile Detection | Identifies concentrated targeting |
 | Repeat Offender Presence | Detects recurring high-friction users |
-| Sentiment Swings | Detects emotional instability |
 | Caps & Punctuation Rage | Detects typed-in-anger patterns |
+| Sentiment Swings | Detects emotional instability |
 
-### 🚨 Risk Tiers
+---
+
+# 🚨 Risk Levels
 
 | Level | Meaning |
 |---|---|
@@ -101,57 +97,101 @@ Thread Oracle answers:          "What is about to happen?"
 
 ---
 
-### 🔮 AI Prophecy Engine
+# 🔮 AI Prophecy Engine
 
-Powered by **Groq LPU inference** via a lightweight proxy backend.
+Thread Oracle uses a hybrid inference architecture:
 
-> *"Essay energy rises from the east. Thread patience deteriorating rapidly."*
+## Primary
+- Groq inference through a lightweight proxy backend
 
-> *"Someone is about to paste a 6-paragraph response nobody asked for. The top reply will just be lol."*
+## Fallback
+- Gemini Flash Lite direct inference
 
-> *"Three people are arguing the same point from different angles and none of them realize it yet."*
-
-> *"Multiple high-friction users converging near critical threshold."*
-
----
-
-### 👁️ Mod Dashboard vs Public View
-
-**Moderators see:**
-- Full chaos score + risk badge + verdict
-- Thread Stats (peak chaos, conflict, sarcasm, Gemini scores)
-- User Radar (flagged users with removal history from mod logs)
-- Private Mod Warning (actionable AI advice)
-- Quick action buttons (Consult Oracle, Slow Mode, Lock Thread)
-
-**Regular users see:**
-- Chaos score + risk badge
-- Comment count
-- Public Prophecy only
+If Groq fails due to Devvit outbound restrictions, the Oracle automatically falls back to Gemini inference so moderation predictions continue working.
 
 ---
 
-### 📌 Oracle Summoning Flow
+# 🧯 Fallback AI System
 
+The Devvit runtime restricts arbitrary outbound HTTP requests.
+
+Direct Groq requests — and even some proxy providers — may be blocked by Devvit allowlists.
+
+To survive runtime restrictions, Thread Oracle uses:
+
+```txt
+Groq Proxy (Primary)
+        ↓ failover
+Gemini 2.5 flash (Fallback)
 ```
+
+This keeps the Oracle alive even when external infrastructure fails.
+
+---
+
+# 🔁 Recursive Trigger Protection
+
+Oracle-generated posts and comments are automatically ignored by the tracking engine.
+
+This prevents:
+
+- runaway chaos inflation
+- recursive AI triggering
+- infinite re-analysis loops
+- Oracle posts analyzing themselves
+
+---
+
+# 🧊 Chaos Decay System
+
+Early builds caused chaos scores to permanently rise forever.
+
+The Oracle now applies score decay over time so old drama slowly cools off naturally instead of permanently locking threads at CRITICAL risk.
+
+---
+
+# 👁️ Moderator Experience
+
+Moderators see:
+
+- Full chaos score + risk badge
+- AI verdicts
+- Thread escalation state
+- Flagged user radar
+- Removal history signals
+- Private moderator warnings
+- Quick moderation actions
+
+Regular users see:
+
+- Public prophecy
+- Chaos score
+- Risk badge
+- Thread state
+
+---
+
+# 📌 Oracle Summoning Flow
+
+```txt
 Moderator opens post menu
           ↓
-  "Summon Thread Oracle"
+   "Summon Thread Oracle"
           ↓
-Oracle dashboard post created
+ Oracle dashboard post created
           ↓
-Pinned mod comment on original thread
+Pinned mod comment added
           ↓
-Historical comments seeded immediately
+Historical comments seeded
           ↓
-Live chaos tracking begins
+Live tracking begins
 ```
 
 ---
 
-## 🏗️ System Architecture
+# 🏗️ Architecture
 
-```
+```txt
 ┌────────────────────────────┐
 │       Reddit Thread        │
 └─────────────┬──────────────┘
@@ -162,88 +202,82 @@ Live chaos tracking begins
 │   (Thread Oracle App)      │
 └─────────────┬──────────────┘
               │
-              ▼
-┌────────────────────────────┐
-│     Oracle Proxy Server    │
-│      (Hosted on Render)    │
-└─────────────┬──────────────┘
-              │
-              ▼
-┌────────────────────────────┐
-│         Groq API           │
-│     LPU AI Inference       │
-└────────────────────────────┘
+      ┌───────┴────────┐
+      │                │
+      ▼                ▼
+┌──────────────┐   ┌────────────────┐
+│ Groq Proxy   │   │ Gemini Fallback│
+│ (Render)     │   │ 2.5 flash API │
+└──────────────┘   └────────────────┘
 ```
 
-> Direct Groq requests from Devvit were blocked by HTTP allowlist restrictions. A lightweight proxy on Render solves this — keeping the Devvit app clean and AI providers swappable.
-
 ---
 
-## 🛡️ Stability Engineering
-
-| Protection | Purpose |
-|---|---|
-| Per-post Gemini cooldown | Prevents analysis spam |
-| Atomic Redis cooldown claims | Prevents race conditions |
-| Global API endpoint hardening | Blocks forced re-analysis on reload |
-| Round-robin API key rotation | Survives rate limit bursts |
-| Duplicate summon prevention | One oracle per thread |
-| Micro-analysis every 10th comment | Lightweight sentiment without quota burn |
-| Request deduplication | Prevents inference storms |
-
----
-
-## 📊 Redis State
+# 📊 Redis State
 
 | Key | Purpose |
 |---|---|
-| `oracle:post:{id}:chaosScore` | Live chaos score |
-| `oracle:post:{id}:prophecy` | Cached AI prophecy |
-| `oracle:post:{id}:modWarning` | Cached mod warning |
-| `oracle:post:{id}:modHistory` | Flagged user records |
-| `oracle:post:{id}:recentCommentSnippets` | Last 10 snippets for AI context |
-| `oracle:gemini:cooldown:{id}` | Per-post rate limiting |
-| `oracle:summoned:{id}` | Duplicate summon prevention |
-| `oracle:flagged:{username}` | Cross-thread troublemaker tracking |
+| oracle:post:{id}:chaosScore | Live chaos score |
+| oracle:post:{id}:prophecy | Cached prophecy |
+| oracle:post:{id}:modWarning | Cached moderator warning |
+| oracle:post:{id}:recentCommentSnippets | Last comments for AI context |
+| oracle:post:{id}:modHistory | User moderation history |
+| oracle:flagged:{username} | Cross-thread troublemaker tracking |
+| oracle:summoned:{id} | Duplicate summon prevention |
 
 ---
 
-## 🧰 Tech Stack
+# 🛡️ Stability Engineering
+
+| Protection | Purpose |
+|---|---|
+| AI cooldowns | Prevents spam inference |
+| Redis locks | Prevents race conditions |
+| Request deduplication | Prevents inference storms |
+| Debounce windows | Stops rapid retriggering |
+| Recursive trigger protection | Stops self-analysis loops |
+| Chaos decay | Prevents permanent escalation |
+| Gemini fallback | Survives provider failure |
+
+---
+
+# 🧰 Tech Stack
 
 | Technology | Purpose |
 |---|---|
-| [Devvit](https://developers.reddit.com) | Reddit-native runtime & custom posts |
-| TypeScript | Core application logic |
-| Redis (Devvit built-in) | Persistent thread state |
-| Groq | High-speed LPU AI inference |
-| Render | Proxy server hosting |
-| Hono | Lightweight API routing |
+| Devvit | Reddit-native runtime |
+| TypeScript | Core logic |
+| Redis | Persistent thread state |
+| Groq | Primary AI inference |
+| Gemini Flash Lite | AI fallback provider |
+| Render | Proxy hosting |
+| Hono | API routing |
 | Vite | Build tooling |
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
-```
+```txt
 prophecy-oracle/
 ├── src/
 │   ├── blocks/
-│   │   └── main.tsx          # Dashboard UI (mod + user views)
+│   │   └── main.tsx
 │   ├── core/
-│   │   ├── oracle.ts         # Chaos scoring, Redis, AI calls
-│   │   └── moderation.ts     # Mod auth checks
+│   │   ├── oracle.ts
+│   │   └── moderation.ts
 │   └── routes/
-│       ├── api.ts            # API endpoints
-│       ├── menu.ts           # Summon Oracle menu action
-│       ├── triggers.ts       # onCommentCreate handler
-│       └── forms.ts          # Interactive forms
+│       ├── api.ts
+│       ├── menu.ts
+│       ├── triggers.ts
+│       └── forms.ts
 ├── devvit.json
 └── package.json
 ```
 
 ---
 
-## 🚀 Setup
+# 🚀 Setup
 
 ```bash
 npm install
@@ -252,19 +286,21 @@ devvit upload
 devvit playtest
 ```
 
-**Configure in Devvit Developer Settings:**
+Configure Devvit settings:
 
 | Setting | Purpose |
 |---|---|
-| `oracle_proxy_url` | Your Render proxy endpoint |
+| oracle_proxy_url | Groq proxy endpoint |
+| gemini_api_key | Gemini fallback API key |
 
 ---
 
-## 🌐 Oracle Proxy Backend
+# 🌐 Proxy Backend
 
-👉 **[github.com/somilbuilds/groq-api-proxy-server](https://github.com/somilbuilds/groq-api-proxy-server)**
+👉 https://github.com/somilbuilds/groq-api-proxy-server
 
 Accepts:
+
 ```json
 {
   "postTitle": "dogs vs cats",
@@ -275,6 +311,7 @@ Accepts:
 ```
 
 Returns:
+
 ```json
 {
   "publicProphecy": "...",
@@ -287,28 +324,29 @@ Returns:
 
 ---
 
-## 🧪 Future Ideas
+# 🧪 Future Ideas
 
-- Raid detection
-- Subreddit-specific behavioral tuning  
-- Temporal escalation graphs
-- Community health timelines
-- Auto-lock recommendation systems
-- Historical prediction accuracy tracking
+- raid detection
+- subreddit-specific tuning
+- escalation graphs
+- prediction accuracy tracking
+- auto-lock recommendations
+- community health timelines
 
 ---
 
-## 🎭 Built For
+# 🎭 Built For
 
-**Reddit Mod Tools & Migrated Apps Hackathon** — exploring proactive moderation systems, AI-assisted community management, and Reddit-native interaction design.
+Reddit Mod Tools & Migrated Apps Hackathon
+
+Exploring:
+- proactive moderation
+- Reddit-native tooling
+- AI-assisted community management
+- predictive social systems
 
 ---
 
 <p align="center">
-  <br>
-  🔮 <i>The Oracle Watches.</i> 🔮
-  <br><br>
-  <a href="https://developers.reddit.com/apps/prophecy-oracle">App Listing</a> •
-  <a href="https://reddit.com/r/prophecy_oracle_dev">Demo Sub</a> •
-  <a href="https://github.com/somilbuilds/groq-api-proxy-server">Proxy Repo</a>
+  <b>🔮 The Oracle Watches. 🔮</b>
 </p>
